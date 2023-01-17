@@ -4,7 +4,7 @@
 
 ### POST `/api/v1/users`
 
-- [] A rota recebe `name`, `email` e `password` dentro do corpo da requisição, salva o usuário criado no banco e retorna uma resposta vazia com status `201`.
+- [X] A rota recebe `name`, `email` e `password` dentro do corpo da requisição, salva o usuário criado no banco e retorna uma resposta vazia com status `201`.
 
 ### POST `/api/v1/sessions`
 
