@@ -1,5 +1,7 @@
 import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUsersRepository";
-import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase"
+import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
+
+import { hash } from 'bcryptjs';
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
 let userRepository: InMemoryUsersRepository;
@@ -11,19 +13,19 @@ describe("Authenticate User", ()=>{
   });
 
   it("should be able to authenticate a user", async ()=>{
-
-    const user = await userRepository.create({
+    const newUser = {
       name: "Amanda",
-      email: "amanda@oauth.test.com",
-      password: "123456",
-    });
+      email: "auth@test.com",
+      password: await hash("auth",8)
+    };
+
+    await userRepository.create(newUser);
 
     const token = await authenticateUserUseCase.execute({
-      email: user.email,
-      password: user.password,
+      email: newUser.email,
+      password: "auth",
     });
 
-    expect(token).toHaveProperty("token");
-
+    expect(token).toHaveProperty('token');
   })
 })
