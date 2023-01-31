@@ -1,5 +1,6 @@
-import { AppError } from "../../../../shared/errors/AppError";
+import { TestUtils } from "../../../../shared/tests/TestUtils";
 import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUsersRepository";
+import { CreateUserError } from "./CreateUserError";
 import { CreateUserUseCase } from "./CreateUserUseCase"
 
 let createUserUseCase: CreateUserUseCase;
@@ -12,31 +13,23 @@ describe("Create User", ()=>{
   });
 
   it("should be able to create a new user", async ()=>{
-    const user = await createUserUseCase.execute({
-      name: "Amanda",
-      email: "amanda@unit.test.com",
-      password: "123456"
-    });
+    const user = TestUtils.giveMeAValidUser();
+    const response = await createUserUseCase.execute(user);
 
-    expect(user).toHaveProperty("id");
+    expect(response).toHaveProperty("id");
   });
 
   it("should not be able to create a new user if the email already exists", async ()=>{
     expect(async ()=>{
+      const user = TestUtils.giveMeAValidUser();
+      await userRepository.create(user);
+      await createUserUseCase.execute(user);
 
-      await createUserUseCase.execute({
-        name: "Amanda",
-        email: "email@exists.test.com",
-        password: "123456"
-      });
+    }).rejects.toBeInstanceOf(CreateUserError);
 
-      await createUserUseCase.execute({
-        name: "Amanda",
-        email: "email@exists.test.com",
-        password: "123456"
-      });
+  });
 
-    }).rejects.toBeInstanceOf(AppError);
-
+  afterEach(()=>{
+    userRepository.reset();
   });
 })

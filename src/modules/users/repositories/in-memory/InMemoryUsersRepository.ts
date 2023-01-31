@@ -20,4 +20,8 @@ export class InMemoryUsersRepository implements IUsersRepository {
     this.users.push(user);
     return user;
   }
+
+  async reset(): Promise<void> {
+    this.users.splice(0);
+  }
 }
