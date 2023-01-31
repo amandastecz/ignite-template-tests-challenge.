@@ -33,7 +33,7 @@ describe("Get Balance", ()=>{
     expect(response).toHaveProperty("balance");
   });
 
-  it("should not to be able to find the balance information from a inexistent user", async () =>{
+  it("should not be able to find the balance information from a inexistent user", async () =>{
     expect(async ()=>{
       await getBalanceUseCase.execute({
         user_id: ''

@@ -26,7 +26,7 @@ describe("Create Statement", ()=>{
       expect(response).toHaveProperty("id");
     });
 
-    it("should not to be able to make a deposit into an non existent account", async ()=>{
+    it("should not be able to make a deposit into an non existent account", async ()=>{
       expect(async ()=>{
         const statement = TestUtils.giveMeAValidStatement('' as string);
         await createStatementUseCase.execute(statement);

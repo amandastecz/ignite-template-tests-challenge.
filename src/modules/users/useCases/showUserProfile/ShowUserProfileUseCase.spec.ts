@@ -21,7 +21,7 @@ describe("Show User Profile", ()=>{
     expect(response).toBeInstanceOf(User);
   });
 
-  it("should not to be able to list the user information when the user doesn't exists", async ()=>{
+  it("should not be able to list the user information when the user doesn't exists", async ()=>{
     expect(async ()=>{
       await showUserProfileUseCase.execute('1');
     }).rejects.toBeInstanceOf(ShowUserProfileError);
