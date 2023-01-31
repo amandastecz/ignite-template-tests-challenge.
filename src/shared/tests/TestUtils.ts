@@ -1,5 +1,6 @@
 import { User } from "../../modules/users/entities/User";
 import { hash } from 'bcryptjs';
+import { Statement } from "../../modules/statements/entities/Statement";
 
 class TestUtils {
   static giveMeAValidUser(): User{
@@ -26,6 +27,18 @@ class TestUtils {
     return user;
   };
 
+  static giveMeAValidStatement(user_id: string): Statement{
+    const statement = new Statement();
+
+    Object.assign(statement, {
+      user_id,
+      type: "valid",
+      amount: 100,
+      description: "A valid statement"
+    });
+
+    return statement;
+  };
 
 }
 

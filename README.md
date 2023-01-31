@@ -28,7 +28,8 @@
 
 ### GET `/api/v1/statements/balance`
 
-- [] A rota recebe um token JWT pelo header da requisição e retorna uma lista com todas as operações de depósito e saque do usuário autenticado e também o saldo total numa propriedade `balance`.
+- A rota recebe um token JWT pelo header da requisição e retorna uma lista com todas as operações de depósito e saque do usuário autenticado e também o saldo total numa propriedade `balance`.
+- [X] should be able to list all deposit and withdraw and also total balance from a valid user
 
 ### POST `/api/v1/statements/deposit`
 

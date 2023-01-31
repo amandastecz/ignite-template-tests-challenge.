@@ -48,4 +48,8 @@ export class InMemoryStatementsRepository implements IStatementsRepository {
 
     return { balance }
   }
+
+  async reset(): Promise<void> {
+    this.statements.splice(0);
+  };
 }
