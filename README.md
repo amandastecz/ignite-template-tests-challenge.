@@ -6,14 +6,14 @@
 
 - A rota recebe `name`, `email` e `password` dentro do corpo da requisição, salva o usuário criado no banco e retorna uma resposta vazia com status `201`.
 - [X] should be able to create a new user
-- [X] should not be able to create a new user if the email already exists
+- [X] should not to be able to create a new user if the email already exists
 
 ### POST `/api/v1/sessions`
 
 - A rota recebe `email` e `password` no corpo da requisição e retorna os dados do usuário autenticado junto à um token JWT.
 - [X] should be able to authenticate a user
-- [X] should not be able to authenticate when the password is wrong
-- [X] should not be able to authenticate when the email is wrong
+- [X] should not to be able to authenticate when the password is wrong
+- [X] should not to be able to authenticate when the email is wrong
 
 <aside>
 💡 Essa aplicação não possui refresh token, ou seja, o token criado dura apenas 1 dia e deve ser recriado após o período mencionado.
@@ -22,7 +22,9 @@
 
 ### GET `/api/v1/profile`
 
-- [] A rota recebe um token JWT pelo header da requisição e retorna as informações do usuário autenticado.
+- A rota recebe um token JWT pelo header da requisição e retorna as informações do usuário autenticado.
+- [X] should be able to list the user information
+- [X] should not to be able to list the user information when the user doesn't exists
 
 ### GET `/api/v1/statements/balance`
 

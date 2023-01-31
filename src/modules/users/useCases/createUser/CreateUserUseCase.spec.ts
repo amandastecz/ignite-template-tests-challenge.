@@ -19,7 +19,7 @@ describe("Create User", ()=>{
     expect(response).toHaveProperty("id");
   });
 
-  it("should not be able to create a new user if the email already exists", async ()=>{
+  it("should not to be able to create a new user if the email already exists", async ()=>{
     expect(async ()=>{
       const user = TestUtils.giveMeAValidUser();
       await userRepository.create(user);

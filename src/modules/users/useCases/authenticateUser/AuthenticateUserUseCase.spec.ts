@@ -1,8 +1,6 @@
 import { TestUtils } from "../../../../shared/tests/TestUtils";
 import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUsersRepository";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
-
-import { hash } from 'bcryptjs';
 import { IncorrectEmailOrPasswordError } from "./IncorrectEmailOrPasswordError";
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
@@ -25,7 +23,7 @@ describe("Authenticate User", ()=>{
     expect(token).toHaveProperty('token');
   });
 
-  it("should not be able to authenticate when the password is wrong", async()=>{
+  it("should not to be able to authenticate when the password is wrong", async()=>{
     const newUser = await TestUtils.giveMeAValidUserWithHash();
     await userRepository.create(newUser);
 
@@ -37,7 +35,7 @@ describe("Authenticate User", ()=>{
     }).rejects.toBeInstanceOf(IncorrectEmailOrPasswordError);
   });
 
-  it("should not be able to authenticate when the email is wrong", async()=>{
+  it("should not to be able to authenticate when the email is wrong", async()=>{
     const newUser = await TestUtils.giveMeAValidUserWithHash();
     await userRepository.create(newUser);
 
