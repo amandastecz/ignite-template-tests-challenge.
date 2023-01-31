@@ -3,6 +3,7 @@ import { InMemoryUsersRepository } from "../../../users/repositories/in-memory/I
 import { Statement } from "../../entities/Statement";
 import { InMemoryStatementsRepository } from "../../repositories/in-memory/InMemoryStatementsRepository";
 import { CreateStatementUseCase } from "../createStatement/CreateStatementUseCase";
+import { GetBalanceError } from "./GetBalanceError";
 import { GetBalanceUseCase } from "./GetBalanceUseCase"
 
 let getBalanceUseCase: GetBalanceUseCase;
@@ -28,8 +29,17 @@ describe("Get Balance", ()=>{
       user_id: user.id as string
     });
 
-    //TODO expect
+    expect(response).toHaveProperty("statement");
+    expect(response).toHaveProperty("balance");
   });
+
+  it("should not to be able to find the balance information from a inexistent user", async () =>{
+    expect(async ()=>{
+      await getBalanceUseCase.execute({
+        user_id: ''
+      });
+    }).rejects.toBeInstanceOf(GetBalanceError);
+  })
 
   afterEach(async ()=>{
     await usersRepository.reset();
