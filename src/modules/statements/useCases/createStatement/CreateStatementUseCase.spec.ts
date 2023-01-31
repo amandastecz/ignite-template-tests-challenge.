@@ -14,7 +14,7 @@ describe("Create Statement", ()=>{
     usersRepository = new InMemoryUsersRepository();
     statementsRepository = new InMemoryStatementsRepository();
     createStatementUseCase = new CreateStatementUseCase(usersRepository, statementsRepository);
-  })
+  });
 
   describe("When deposit", ()=>{
     it("should be able to make a deposit into an existent account", async ()=>{

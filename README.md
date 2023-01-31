@@ -46,4 +46,8 @@
 
 ### GET `/api/v1/statements/:statement_id`
 
-- [] A rota recebe um token JWT pelo header e o id de uma operação registrada (saque ou depósito) na URL da rota e retorna as informações da operação encontrada.
+- A rota recebe um token JWT pelo header e o id de uma operação registrada (saque ou depósito) na URL da rota e retorna as informações da operação encontrada.
+- [X] should be able to return the found deposit operation information
+- [X] should be able to return the found withdraw operation information
+- [X] should not be able to return a statement operation information when the user not exists
+- [X] should not be able to return a statement operation information when the statement not exists
