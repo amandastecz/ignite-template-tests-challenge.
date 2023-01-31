@@ -40,7 +40,9 @@
 
 ### POST `/api/v1/statements/withdraw`
 
-- [] A rota recebe um token JWT pelo header e `amount` e `description` no corpo da requisição, registra a operação de saque do valor (caso o usuário possua saldo válido) e retorna as informações do saque criado com status `201`.
+- A rota recebe um token JWT pelo header e `amount` e `description` no corpo da requisição, registra a operação de saque do valor (caso o usuário possua saldo válido) e retorna as informações do saque criado com status `201`.
+- [X] should be able to withdraw to an account with sufficient balance
+- [X] should not be able to withdraw from an account with insufficient balance
 
 ### GET `/api/v1/statements/:statement_id`
 
