@@ -1,4 +1,5 @@
 import { User } from "../../modules/users/entities/User";
+import { hash } from 'bcryptjs';
 
 class TestUtils {
   static giveMeAValidUser(): User{
@@ -11,7 +12,21 @@ class TestUtils {
     });
 
     return user;
-  }
+  };
+
+  static async giveMeAValidUserWithHash(): Promise<User>{
+    const user = new User();
+
+    Object.assign(user, {
+      name: "Amanda",
+      email: "email@valid.com",
+      password:  await hash("auth",8)
+    });
+
+    return user;
+  };
+
+
 }
 
 export { TestUtils }

@@ -10,7 +10,10 @@
 
 ### POST `/api/v1/sessions`
 
-- [] A rota recebe `email` e `password` no corpo da requisição e retorna os dados do usuário autenticado junto à um token JWT.
+- A rota recebe `email` e `password` no corpo da requisição e retorna os dados do usuário autenticado junto à um token JWT.
+- [X] should be able to authenticate a user
+- [X] should not be able to authenticate when the password is wrong
+- [X] should not be able to authenticate when the email is wrong
 
 <aside>
 💡 Essa aplicação não possui refresh token, ou seja, o token criado dura apenas 1 dia e deve ser recriado após o período mencionado.
