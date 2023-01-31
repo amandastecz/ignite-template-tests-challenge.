@@ -34,7 +34,9 @@
 
 ### POST `/api/v1/statements/deposit`
 
-- [] A rota recebe um token JWT pelo header e `amount` e `description` no corpo da requisição, registra a operação de depósito do valor e retorna as informações do depósito criado com status `201`.
+- A rota recebe um token JWT pelo header e `amount` e `description` no corpo da requisição, registra a operação de depósito do valor e retorna as informações do depósito criado com status `201`.
+- [X] should be able to make a deposit into an existent account
+- [X] should not to be able to make a deposit into an non existent account
 
 ### POST `/api/v1/statements/withdraw`
 

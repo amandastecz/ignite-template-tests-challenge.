@@ -27,19 +27,18 @@ class TestUtils {
     return user;
   };
 
-  static giveMeAValidStatement(user_id: string): Statement{
+  static giveMeAValidStatement(user_id: string, type="deposit"): Statement{
     const statement = new Statement();
 
     Object.assign(statement, {
       user_id,
-      type: "valid",
+      type,
       amount: 100,
       description: "A valid statement"
     });
 
     return statement;
   };
-
 }
 
 export { TestUtils }
