@@ -1,4 +1,4 @@
-# Testes unitários para a aplicação em Node.js
+# Testes unitários e integração para a aplicação em Node.js
 
 ## Rotas da aplicação
 
