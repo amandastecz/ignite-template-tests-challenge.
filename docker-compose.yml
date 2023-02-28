@@ -3,7 +3,7 @@ version: "3.9"
 services:
   database: #ESSE É O NOME DO SERVICE QUE DEVE ESTAR NO ARQUIVO DE CRIAÇÃO DE CONEXÃO
     image: postgres
-    container_name: fin_api
+    container_name: database_finapi
     restart: always
     ports:
       - 5432:5432
