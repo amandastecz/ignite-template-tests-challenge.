@@ -1,14 +1,15 @@
 import { User } from "../../modules/users/entities/User";
 import { hash } from 'bcryptjs';
 import { Statement } from "../../modules/statements/entities/Statement";
+import { faker } from "@faker-js/faker";
 
 class TestUtils {
   static giveMeAValidUser(): User{
     const user = new User();
 
     Object.assign(user, {
-      name: "Amanda",
-      email: "email@valid.com",
+      name: faker.name.fullName(),
+      email: faker.internet.email(),
       password: "123456"
     });
 
@@ -19,8 +20,8 @@ class TestUtils {
     const user = new User();
 
     Object.assign(user, {
-      name: "Amanda",
-      email: "email@valid.com",
+      name: faker.name.fullName(),
+      email: faker.internet.email(),
       password:  await hash("auth",8)
     });
 
