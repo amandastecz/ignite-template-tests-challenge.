@@ -1,4 +1,4 @@
-# Unit tests and integration for the application in Node.js
+# Unit tests and integration with Jest for a Node.js application
 
 ## Application routes
 
